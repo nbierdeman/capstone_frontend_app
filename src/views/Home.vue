@@ -40,6 +40,43 @@ export default {
     //   }),
     //   "top-left"
     // );
+    map.on("load", function() {
+      map.addSource("route", {
+        type: "geojson",
+        data: {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "LineString",
+            coordinates: [
+              [-87.65532, 41.988179],
+              [-87.655131, 41.98188],
+              [-87.66843, 41.981675],
+              [-87.668416, 41.976191],
+              [-87.668085, 41.97339],
+              [-87.671147, 41.97341],
+              [-87.670887, 41.963399],
+              [-87.674571, 41.963343],
+              [-87.67426, 41.956051],
+              [-87.674643, 41.955907],
+            ],
+          },
+        },
+      });
+      map.addLayer({
+        id: "route",
+        type: "line",
+        source: "route",
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#888",
+          "line-width": 8,
+        },
+      });
+    });
   },
 };
 </script>
