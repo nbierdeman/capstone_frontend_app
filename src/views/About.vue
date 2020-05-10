@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h3>Bikr is a cycling app that displays air pollution information for your route.</h3>
   </div>
 </template>
