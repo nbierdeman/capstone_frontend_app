@@ -5,6 +5,7 @@ import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import TripsIndex from "../views/TripsIndex.vue";
+import TripsShow from "../views/TripsShow.vue";
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,7 @@ const routes = [
   { path: "/login", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout },
   { path: "/trips", name: "trips-index", component: TripsIndex },
+  { path: "/trips/:id", name: "trips-show", component: TripsShow },
 ];
 
 const router = new VueRouter({
