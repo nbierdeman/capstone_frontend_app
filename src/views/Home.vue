@@ -33,13 +33,13 @@ export default {
       center: [-87.6298, 41.8781], // starting position [lng, lat]
       zoom: 12, // starting zoom
     });
-    map.addControl(
-      new MapboxDirections({
-        accessToken: mapboxgl.accessToken,
-        profile: "mapbox/cycling",
-      }),
-      "top-left"
-    );
+    // map.addControl(
+    //   new MapboxDirections({
+    //     accessToken: mapboxgl.accessToken,
+    //     profile: "mapbox/cycling",
+    //   }),
+    //   "top-left"
+    // );
   },
 };
 </script>
