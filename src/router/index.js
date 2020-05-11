@@ -7,6 +7,7 @@ import Logout from "../views/Logout.vue";
 import TripsIndex from "../views/TripsIndex.vue";
 import TripsShow from "../views/TripsShow.vue";
 import TripsEdit from "../views/TripsEdit.vue";
+import Map from "../views/Map.vue";
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,7 @@ const routes = [
   { path: "/trips", name: "trips-index", component: TripsIndex },
   { path: "/trips/:id", name: "trips-show", component: TripsShow },
   { path: "/trips/:id/edit", name: "trips-edit", component: TripsEdit },
+  { path: "/map", name: "map", component: Map },
 ];
 
 const router = new VueRouter({

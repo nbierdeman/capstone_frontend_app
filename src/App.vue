@@ -12,6 +12,8 @@
       <router-link to="/logout">Logout</router-link>
       |
       <router-link to="/trips">My Trips</router-link>
+      |
+      <router-link to="/map">Map</router-link>
     </div>
     <router-view />
   </div>
