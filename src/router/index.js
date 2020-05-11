@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import TripsIndex from "../views/TripsIndex.vue";
 import TripsShow from "../views/TripsShow.vue";
+import TripsEdit from "../views/TripsEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,7 @@ const routes = [
   { path: "/logout", name: "logout", component: Logout },
   { path: "/trips", name: "trips-index", component: TripsIndex },
   { path: "/trips/:id", name: "trips-show", component: TripsShow },
+  { path: "/trips/:id/edit", name: "trips-edit", component: TripsEdit },
 ];
 
 const router = new VueRouter({
