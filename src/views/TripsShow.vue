@@ -16,8 +16,8 @@
       <p>Location: {{ observation.longitude }}, {{ observation.latitude }}</p>
       <br />
     </div>
-    <!-- <a v-bind:href="`/trips/${trip.id}/edit`">Edit trip</a> -->
-    <!-- <br /> -->
+    <a v-bind:href="`/trips/${trip.id}/edit`">Edit trip</a>
+    <br />
     <button v-on:click="destroyTrip(trip)">Delete Trip</button>
     <a href="/trips">Back to All Trips</a>
   </div>
