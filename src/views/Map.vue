@@ -35,11 +35,15 @@ export default {
     // remove all waypoints
     var removeWaypointsButton = document.body.appendChild(document.createElement("button"));
     removeWaypointsButton.style = "z-index:10;position:absolute;top:30px;right:10px;";
-    removeWaypointsButton.textContent = "Remove all waypoints";
+    removeWaypointsButton.textContent = "Remove all directions";
 
     var directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
       profile: "mapbox/cycling",
+      controls: {
+        instructions: true,
+        profileSwitcher: false,
+      },
     });
     window.directions = directions;
 
