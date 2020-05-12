@@ -19,6 +19,8 @@ body {
 </style>
 
 <script>
+import axios from "axios";
+
 export default {
   data: function() {
     return {
@@ -75,6 +77,12 @@ export default {
     directions.on("route", feature => {
       console.log(feature);
       this.route = feature;
+      var params = {
+        route: this.route,
+      };
+      axios.post("/api/maps", params).then(response => {
+        console.log(response.data);
+      });
     });
 
     // map.on("load", function() {
