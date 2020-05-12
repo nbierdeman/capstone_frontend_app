@@ -40,9 +40,9 @@ export default {
     });
 
     // remove all waypoints
-    var removeWaypointsButton = document.body.appendChild(document.createElement("button"));
-    removeWaypointsButton.style = "z-index:10;position:absolute;top:30px;right:10px;";
-    removeWaypointsButton.textContent = "Remove all directions";
+    // var removeWaypointsButton = document.body.appendChild(document.createElement("button"));
+    // removeWaypointsButton.style = "z-index:10;position:absolute;top:30px;right:10px;";
+    // removeWaypointsButton.textContent = "Remove all directions";
 
     var directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
@@ -56,11 +56,11 @@ export default {
 
     map.addControl(directions, "top-left");
 
-    map.on("load", () => {
-      removeWaypointsButton.addEventListener("click", function() {
-        directions.removeRoutes();
-      });
-    });
+    // map.on("load", () => {
+    //   removeWaypointsButton.addEventListener("click", function() {
+    //     directions.removeRoutes();
+    //   });
+    // });
 
     directions.on("origin", feature => {
       console.log(feature);
@@ -76,8 +76,6 @@ export default {
       console.log(feature);
       this.route = feature;
     });
-
-    // directions.getOrigin;
 
     // map.on("load", function() {
     //   map.addSource("route", {
