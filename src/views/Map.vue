@@ -1,6 +1,9 @@
 <template>
   <div>
     <div id="map"></div>
+    <p>Origin: {{ origin }}</p>
+    <p>Destination: {{ destination }}</p>
+    <p>Route: {{ route }}</p>
   </div>
 </template>
 
@@ -18,7 +21,11 @@ body {
 <script>
 export default {
   data: function() {
-    return {};
+    return {
+      origin: null,
+      destination: null,
+      route: null,
+    };
   },
   created: function() {},
   methods: {},
@@ -54,6 +61,23 @@ export default {
         directions.removeRoutes();
       });
     });
+
+    directions.on("origin", feature => {
+      console.log(feature);
+      this.origin = feature["feature"]["geometry"]["coordinates"];
+    });
+
+    directions.on("destination", feature => {
+      console.log(feature);
+      this.destination = feature["feature"]["geometry"]["coordinates"];
+    });
+
+    directions.on("route", feature => {
+      console.log(feature);
+      this.route = feature;
+    });
+
+    // directions.getOrigin;
 
     // map.on("load", function() {
     //   map.addSource("route", {
