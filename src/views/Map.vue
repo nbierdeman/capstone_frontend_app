@@ -2,6 +2,8 @@
   <div>
     <div id="map"></div>
     <button v-on:click="getAirQuality()">Get Air Quality</button>
+    <!-- [ "0AA", "0AA", "0AA", "0AA", "014", "0A0", "0A0", "0A0", "0A0" ] -->
+    <p>{{ node_vsns }}</p>
     <p>{{ closest_node_coordinates }}</p>
     <p>{{ observations }}</p>
     <!-- <p>Origin: {{ origin }}</p> -->
@@ -32,6 +34,7 @@ export default {
       route: null,
       observations: null,
       closest_node_coordinates: null,
+      node_vsns: null,
     };
   },
   created: function() {},
@@ -41,6 +44,7 @@ export default {
         console.log("Get air quality", response);
         this.observations = response.data.observations;
         this.closest_node_coordinates = response.data.closest_node_coordinates;
+        this.node_vsns = response.data.node_vsns;
       });
     },
   },
