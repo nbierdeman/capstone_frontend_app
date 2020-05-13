@@ -2,12 +2,12 @@
   <div>
     <div id="map"></div>
     <button v-on:click="getAirQuality()">Get Air Quality</button>
-    <!-- [ "0AA", "0AA", "0AA", "0AA", "014", "0A0", "0A0", "0A0", "0A0" ] -->
-    <p>{{ node_vsns }}</p>
-    <p>{{ closest_node_coordinates }}</p>
-    <p>{{ observations }}</p>
-    <!-- <p>Origin: {{ origin }}</p> -->
-    <!-- <p>Destination: {{ destination }}</p> -->
+    <p>Origin: {{ origin }}</p>
+    <p>Destination: {{ destination }}</p>
+    <p>Waypoints: {{ waypoints }}</p>
+    <p>Node VSN: {{ node_vsns }}</p>
+    <p>Closest Nodes: {{ closest_node_coordinates }}</p>
+    <p>Observations: {{ observations }}</p>
     <!-- <p>Route: {{ route }}</p> -->
   </div>
 </template>
@@ -35,6 +35,7 @@ export default {
       observations: null,
       closest_node_coordinates: null,
       node_vsns: null,
+      waypoints: null,
     };
   },
   created: function() {},
@@ -99,9 +100,9 @@ export default {
       };
       axios.post("/api/maps", params).then(response => {
         console.log(response.data);
+        this.waypoints = response.data.waypoints;
       });
     });
-
     // map.on("load", function() {
     //   map.addSource("route", {
     //     type: "geojson",
