@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Trip Info</h1>
-    <h3>{{ relativeDate(trip.created_at) }}</h3>
+    <h1>Route Info</h1>
+    <h3>Last Updated: {{ relativeDate(trip.created_at) }}</h3>
     <p>Duration: {{ trip.duration }}</p>
     <p>Distance: {{ trip.distance }}</p>
     <p>Mode: {{ trip.mode }}</p>

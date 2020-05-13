@@ -1,8 +1,8 @@
 <template>
   <div class="trips">
-    <h1>My Trips</h1>
+    <h1>My Routes</h1>
     <div v-for="trip in trips">
-      <h3>{{ relativeDate(trip.created_at) }}</h3>
+      <h3>Last Updated: {{ relativeDate(trip.created_at) }}</h3>
       <p>Duration: {{ trip.duration }}</p>
       <p>Distance: {{ trip.distance }}</p>
       <p>Mode: {{ trip.mode }}</p>
