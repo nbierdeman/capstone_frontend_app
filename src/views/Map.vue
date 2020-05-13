@@ -1,9 +1,12 @@
 <template>
   <div>
     <div id="map"></div>
-    <p>Origin: {{ origin }}</p>
-    <p>Destination: {{ destination }}</p>
-    <p>Route: {{ route }}</p>
+    <button v-on:click="getAirQuality()">Get Air Quality</button>
+    <p>{{ closest_node_coordinates }}</p>
+    <p>{{ observations }}</p>
+    <!-- <p>Origin: {{ origin }}</p> -->
+    <!-- <p>Destination: {{ destination }}</p> -->
+    <!-- <p>Route: {{ route }}</p> -->
   </div>
 </template>
 
@@ -27,10 +30,20 @@ export default {
       origin: null,
       destination: null,
       route: null,
+      observations: null,
+      closest_node_coordinates: null,
     };
   },
   created: function() {},
-  methods: {},
+  methods: {
+    getAirQuality() {
+      axios.get("/api/maps/").then(response => {
+        console.log("Get air quality", response);
+        this.observations = response.data.observations;
+        this.closest_node_coordinates = response.data.closest_node_coordinates;
+      });
+    },
+  },
   mounted: function() {
     mapboxgl.accessToken = process.env.VUE_APP_MAPBOX_API_KEY;
     var map = new mapboxgl.Map({
