@@ -45,6 +45,7 @@ export default {
       distance: null,
       mode: null,
       trip_type: null,
+      trip_id: null,
     };
   },
   created: function() {},
@@ -58,16 +59,16 @@ export default {
       });
     },
     saveRoute() {
-      var params = {
+      var params1 = {
         duration: this.duration,
         distance: this.distance,
         mode: this.mode,
         trip_type: this.trip_type,
       };
       axios
-        .post("/api/trips", params)
+        .post("/api/trips", params1)
         .then(response => {
-          this.$router.push("/login");
+          console.log("Trip saved!", response);
         })
         .catch(error => {
           this.errors = error.response.data.errors;
