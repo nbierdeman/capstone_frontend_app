@@ -45,7 +45,6 @@ export default {
       distance: null,
       mode: null,
       trip_type: null,
-      trip_id: null,
     };
   },
   created: function() {},
@@ -64,6 +63,8 @@ export default {
         distance: this.distance,
         mode: this.mode,
         trip_type: this.trip_type,
+        waypoints: this.waypoints,
+        observations: this.observations,
       };
       axios
         .post("/api/trips", params1)
