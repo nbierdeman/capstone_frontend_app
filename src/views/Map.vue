@@ -12,6 +12,7 @@
     <div v-for="observation in observations">
       <h3>Sensor: {{ observation["sensor_path"] }}</h3>
       <p>Value: {{ observation["value"] }} {{ observation["uom"] }}</p>
+      <!-- <p>Raw: {{ observation }}</p> -->
     </div>
   </div>
 </template>
@@ -63,7 +64,7 @@ export default {
         distance: this.distance,
         mode: this.mode,
         trip_type: this.trip_type,
-        waypoints: this.waypoints,
+        closest_node_coordinates: this.closest_node_coordinates,
         observations: this.observations,
       };
       axios
