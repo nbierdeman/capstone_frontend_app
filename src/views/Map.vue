@@ -2,13 +2,16 @@
   <div>
     <div id="map"></div>
     <button v-on:click="getAirQuality()">Get Air Quality</button>
-    <p>Origin: {{ origin }}</p>
-    <p>Destination: {{ destination }}</p>
-    <p>Waypoints: {{ waypoints }}</p>
-    <p>Node VSN: {{ node_vsns }}</p>
-    <p>Closest Nodes: {{ closest_node_coordinates }}</p>
-    <p>Observations: {{ observations }}</p>
+    <!-- <p>Origin: {{ origin }}</p> -->
+    <!-- <p>Destination: {{ destination }}</p> -->
+    <!-- <p>Waypoints: {{ waypoints }}</p> -->
+    <!-- <p>Node VSN: {{ node_vsns }}</p> -->
+    <!-- <p>Closest Nodes: {{ closest_node_coordinates }}</p> -->
     <!-- <p>Route: {{ route }}</p> -->
+    <div v-for="observation in observations">
+      <h3>Sensor: {{ observation["sensor_path"] }}</h3>
+      <p>Value: {{ observation["value"] }} {{ observation["uom"] }}</p>
+    </div>
   </div>
 </template>
 
@@ -25,6 +28,7 @@ body {
 
 <script>
 import axios from "axios";
+import moment from "moment";
 
 export default {
   data: function() {
