@@ -2,6 +2,7 @@
   <div>
     <div id="map"></div>
     <button v-on:click="getAirQuality()">Get Air Quality</button>
+    <button v-on:click="saveRoute()">Save Route</button>
     <!-- <p>Origin: {{ origin }}</p> -->
     <!-- <p>Destination: {{ destination }}</p> -->
     <!-- <p>Waypoints: {{ waypoints }}</p> -->
@@ -40,6 +41,10 @@ export default {
       closest_node_coordinates: null,
       node_vsns: null,
       waypoints: null,
+      duration: null,
+      distance: null,
+      mode: null,
+      trip_type: null,
     };
   },
   created: function() {},
@@ -51,6 +56,22 @@ export default {
         this.closest_node_coordinates = response.data.closest_node_coordinates;
         this.node_vsns = response.data.node_vsns;
       });
+    },
+    saveRoute() {
+      var params = {
+        duration: this.duration,
+        distance: this.distance,
+        mode: this.mode,
+        trip_type: this.trip_type,
+      };
+      axios
+        .post("/api/trips", params)
+        .then(response => {
+          this.$router.push("/login");
+        })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+        });
     },
   },
   mounted: function() {
@@ -105,6 +126,10 @@ export default {
       axios.post("/api/maps", params).then(response => {
         console.log(response.data);
         this.waypoints = response.data.waypoints;
+        this.duration = response.data.duration;
+        this.distance = response.data.distance;
+        this.mode = response.data.mode;
+        this.trip_type = response.data.trip_type;
       });
     });
     // map.on("load", function() {
