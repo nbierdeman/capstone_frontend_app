@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="map"></div>
-    <button v-on:click="getAirQuality()">Get Air Quality</button>
+    <button v-on:click="getAirQuality()">Air Quality</button>
     <button v-on:click="saveRoute()">Save Route</button>
     <!-- <p>Origin: {{ origin }}</p> -->
     <!-- <p>Destination: {{ destination }}</p> -->
