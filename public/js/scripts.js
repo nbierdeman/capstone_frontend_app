@@ -3,7 +3,7 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
  */
-(function($) {
+function setupTheme() {
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
@@ -50,4 +50,4 @@
   navbarCollapse();
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
-})(jQuery); // End of use strict
+} // End of use strict

@@ -34,12 +34,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/about">About</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/signup">Signup</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">Logout</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/trips">My Routes</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/map">Map</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/signup">Signup</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/trips">My Routes</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -57,3 +57,11 @@
 
 <style>
 </style>
+
+<script>
+export default {
+  mounted: function() {
+    setupTheme();
+  },
+};
+</script>

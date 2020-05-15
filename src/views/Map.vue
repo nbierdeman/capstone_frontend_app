@@ -96,13 +96,13 @@ export default {
       accessToken: mapboxgl.accessToken,
       profile: "mapbox/cycling",
       controls: {
-        instructions: true,
+        instructions: false,
         profileSwitcher: false,
       },
     });
     window.directions = directions;
 
-    map.addControl(directions, "top-left");
+    map.addControl(directions, "bottom-left");
 
     // map.on("load", () => {
     //   removeWaypointsButton.addEventListener("click", function() {
