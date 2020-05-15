@@ -1,6 +1,17 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
+    <!-- Masthead-->
+    <header class="masthead">
+      <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+          <h1 class="mx-auto my-0 text-uppercase">{{ message }}</h1>
+          <h2 class="text-white-50 mx-auto mt-2 mb-5">
+            FOR EVERY RIDE
+          </h2>
+          <a class="btn btn-primary js-scroll-trigger" href="/map">Get Started</a>
+        </div>
+      </div>
+    </header>
   </div>
 </template>
 
@@ -19,7 +30,7 @@ body {
 export default {
   data: function() {
     return {
-      message: "Welcome to Bikr!",
+      message: "Clean Air",
     };
   },
   created: function() {},
