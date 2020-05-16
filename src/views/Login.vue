@@ -1,22 +1,26 @@
 <template>
   <div class="login">
-    <div class="container">
-      <form v-on:submit.prevent="submit()">
-        <h1>Login</h1>
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div class="form-group">
-          <label>Email:</label>
-          <input type="email" class="form-control" v-model="email" />
+    <!-- Masthead-Login-->
+    <header class="masthead-login">
+      <div class="container d-flex h-100 align-items-center">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-white mb-4">Login</h2>
+          <form v-on:submit.prevent="submit()">
+            <p class="text-danger" v-for="error in errors">{{ error }}</p>
+            <div class="form-group">
+              <p class="text-white-50">Email:</p>
+              <input type="email" class="form-control" v-model="email" />
+            </div>
+            <div class="form-group">
+              <p class="text-white-50">Password:</p>
+              <input type="password" class="form-control" v-model="password" />
+            </div>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Submit" />
+          </form>
         </div>
-        <div class="form-group">
-          <label>Password:</label>
-          <input type="password" class="form-control" v-model="password" />
-        </div>
-        <input type="submit" class="btn btn-primary" value="Submit" />
-      </form>
-    </div>
+      </div>
+    </header>
   </div>
 </template>
 
