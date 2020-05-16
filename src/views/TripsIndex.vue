@@ -4,24 +4,24 @@
     <header class="masthead-routes">
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
-          <h2 class="text-white-50 mx-auto mt-2 mb-5">
+          <h3 class="text-white-50 mx-auto mt-2 mb-5">
+            <br />
             My Routes
-          </h2>
+          </h3>
+          <div v-for="trip in trips">
+            <h6 class="text-white-50 mx-auto mt-2 mb-5">
+              Updated: {{ relativeDate(trip.created_at) }}<br />
+              Duration: {{ trip.duration }}<br />
+              Distance: {{ trip.distance }}<br />
+              Mode: {{ trip.mode }}<br />
+              Type: {{ trip.trip_type }}<br />
+              <br />
+              <a v-bind:href="`/trips/${trip.id}`">More info</a>
+            </h6>
+          </div>
         </div>
       </div>
     </header>
-    <!-- <h1>My Routes</h1>
-    <div v-for="trip in trips">
-      <h3>Last Updated: {{ relativeDate(trip.created_at) }}</h3>
-      <p>Duration: {{ trip.duration }}</p>
-      <p>Distance: {{ trip.distance }}</p>
-      <p>Mode: {{ trip.mode }}</p>
-      <p>Type: {{ trip.trip_type }}</p>
-      <div>
-        <a v-bind:href="`/trips/${trip.id}`">More info</a>
-      </div>
-      <br />
-    </div> -->
   </div>
 </template>
 

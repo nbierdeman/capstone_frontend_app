@@ -4,6 +4,17 @@
     <header class="masthead-signup">
       <div class="container d-flex h-100 align-items-center">
         <div class="col-lg-8 mx-auto">
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <h2 class="text-white mb-4">Signup</h2>
           <form v-on:submit.prevent="submit()">
             <p class="text-danger" v-for="error in errors">{{ error }}</p>
