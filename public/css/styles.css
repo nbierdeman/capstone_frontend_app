@@ -10562,7 +10562,7 @@ body {
   border: 0;
 }
 
-.masthead {
+.masthead-home {
   position: relative;
   width: 100%;
   height: auto;
@@ -10575,7 +10575,7 @@ body {
   background-attachment: scroll;
   background-size: cover;
 }
-.masthead h1 {
+.masthead-home h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 2.5rem;
@@ -10586,33 +10586,33 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
 }
-.masthead h2 {
+.masthead-home h2 {
   max-width: 20rem;
   font-size: 1rem;
 }
 @media (min-width: 768px) {
-  .masthead h1 {
+  .masthead-home h1 {
     font-size: 4rem;
     line-height: 4rem;
   }
 }
 @media (min-width: 992px) {
-  .masthead {
+  .masthead-home {
     height: 100vh;
     padding: 0;
   }
-  .masthead h1 {
+  .masthead-home h1 {
     font-size: 6.5rem;
     line-height: 6.5rem;
     letter-spacing: 0.8rem;
   }
-  .masthead h2 {
+  .masthead-home h2 {
     max-width: 30rem;
     font-size: 1.25rem;
   }
 }
 
-.masthead2 {
+.masthead-about {
   position: relative;
   width: 100%;
   height: auto;
@@ -10625,7 +10625,7 @@ body {
   background-attachment: scroll;
   background-size: cover;
 }
-.masthead2 h1 {
+.masthead-about h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 2.5rem;
@@ -10636,27 +10636,27 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
 }
-.masthead2 h2 {
+.masthead-about h2 {
   max-width: 20rem;
   font-size: 1rem;
 }
 @media (min-width: 768px) {
-  .masthead2 h1 {
+  .masthead-about h1 {
     font-size: 4rem;
     line-height: 4rem;
   }
 }
 @media (min-width: 992px) {
-  .masthead2 {
+  .masthead-about {
     height: 100vh;
     padding: 0;
   }
-  .masthead2 h1 {
+  .masthead-about h1 {
     font-size: 6.5rem;
     line-height: 6.5rem;
     letter-spacing: 0.8rem;
   }
-  .masthead2 h2 {
+  .masthead-about h2 {
     max-width: 30rem;
     font-size: 2rem;
   }
