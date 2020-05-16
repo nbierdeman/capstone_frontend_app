@@ -24,7 +24,7 @@
               <input type="password" class="form-control" v-model="password">
             </div>
             <div class="form-group">
-              <p class="text-white-50">Password confirmation:</p>
+              <p class="text-white-50">Password Confirmation:</p>
               <input type="password" class="form-control" v-model="passwordConfirmation">
             </div>
             <br>

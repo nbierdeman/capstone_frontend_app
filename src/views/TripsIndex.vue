@@ -1,6 +1,16 @@
 <template>
   <div class="trips">
-    <h1>My Routes</h1>
+    <!-- Masthead-->
+    <header class="masthead-routes">
+      <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+          <h2 class="text-white-50 mx-auto mt-2 mb-5">
+            My Routes
+          </h2>
+        </div>
+      </div>
+    </header>
+    <!-- <h1>My Routes</h1>
     <div v-for="trip in trips">
       <h3>Last Updated: {{ relativeDate(trip.created_at) }}</h3>
       <p>Duration: {{ trip.duration }}</p>
@@ -11,7 +21,7 @@
         <a v-bind:href="`/trips/${trip.id}`">More info</a>
       </div>
       <br />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -25,6 +35,7 @@ export default {
   data: function() {
     return {
       trips: [],
+      message: "Routes",
     };
   },
 
