@@ -14,9 +14,9 @@
             Type: {{ trip.trip_type }}<br />
             Mode: {{ trip.mode }}<br />
           </h6>
-          <h3 class="text-white-50 mx-auto mt-2 mb-5">
+          <!-- <h3 class="text-white-50 mx-auto mt-2 mb-5">
             Air Quality
-          </h3>
+          </h3> -->
           <div v-for="observation in observations">
             <h6 class="text-white-50 mx-auto mt-2 mb-5">
               {{ formatDate(observation.timestamp) }}<br />
@@ -30,10 +30,10 @@
           <a v-bind:href="`/trips/${trip.id}/edit`">Edit trip</a>
           <br />
           <br /> -->
-          <button v-on:click="destroyTrip(trip)">Delete Trip</button>
+          <button v-on:click="destroyTrip(trip)">Delete Route</button>
           <br />
           <br />
-          <a href="/trips">Back to All Trips</a>
+          <a href="/trips">Back to My Routes</a>
         </div>
       </div>
     </div>
