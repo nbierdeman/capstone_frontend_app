@@ -1,21 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-      |
-      <router-link to="/signup">Signup</router-link>
-      |
-      <router-link to="/login">Login</router-link>
-      |
-      <router-link to="/logout">Logout</router-link>
-      |
-      <router-link to="/trips">My Routes</router-link>
-      |
-      <router-link to="/map">Map</router-link>
-    </div> -->
-    
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
@@ -35,11 +19,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/map">Map</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/signup">Signup</a></li>
+            <li v-if="!jwt" class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
+            <li v-if="!jwt" class="nav-item"><a class="nav-link js-scroll-trigger" href="/signup">Signup</a></li>
+            <li v-if="jwt" class="nav-item"><a class="nav-link js-scroll-trigger" href="/trips">My Routes</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/about">About</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/trips">My Routes</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">Logout</a></li>
+            <li v-if="jwt" class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -60,6 +44,24 @@
 
 <script>
 export default {
+  data: function() {
+    return {
+      jwt: null,
+      userId: null,
+    };
+  },
+  created: function() {
+    this.setJwt();
+    this.setUserId();
+  },
+  methods: {
+    setJwt: function() {
+      this.jwt = localStorage.jwt;
+    },
+    setUserId: function() {
+      this.userId = parseInt(localStorage.user_id);
+    },
+  },
   mounted: function() {
     setupTheme();
   },
