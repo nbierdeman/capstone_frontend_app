@@ -4,7 +4,7 @@
     <div class="about-section">
       <div class="mx-auto text-center">
         <button v-on:click="getAirQuality()">Get Air Quality</button>
-        <button v-on:click="saveRoute()">Save Route</button>
+        <button v-if="jwt" v-on:click="saveRoute()">Save Route</button>
         <div v-for="observation in observations">
           <br />
           <h6 class="text-white-50 mx-auto mt-2 mb-5">
@@ -55,10 +55,21 @@ export default {
       distance: null,
       mode: null,
       trip_type: null,
+      jwt: null,
+      userId: null,
     };
   },
-  created: function() {},
+  created: function() {
+    this.setJwt();
+    this.setUserId();
+  },
   methods: {
+    setJwt: function() {
+      this.jwt = localStorage.jwt;
+    },
+    setUserId: function() {
+      this.userId = parseInt(localStorage.user_id);
+    },
     getAirQuality() {
       axios.get("/api/maps/").then(response => {
         console.log("Get air quality", response);
