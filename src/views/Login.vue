@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <!-- Masthead-Login-->
-    <header class="masthead-login">
+    <div class="masthead-login">
       <div class="container d-flex h-100 align-items-center">
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">Login</h2>
@@ -20,7 +20,7 @@
           </form>
         </div>
       </div>
-    </header>
+    </div>
   </div>
 </template>
 

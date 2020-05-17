@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
     <!-- Masthead-Signup-->
-    <header class="masthead-signup">
+    <div class="masthead-signup">
       <div class="container d-flex h-100 align-items-center">
         <div class="col-lg-8 mx-auto">
           <br />
@@ -43,7 +43,7 @@
           </form>
         </div>
       </div>
-    </header>
+    </div>
   </div>
 </template>
 

@@ -1,25 +1,42 @@
 <template>
   <div>
-    <h1>Route Info</h1>
-    <h3>Last Updated: {{ relativeDate(trip.created_at) }}</h3>
-    <p>Duration: {{ trip.duration }}</p>
-    <p>Distance: {{ trip.distance }}</p>
-    <p>Mode: {{ trip.mode }}</p>
-    <p>Type: {{ trip.trip_type }}</p>
-    <br />
-    <h3>Air Quality Info</h3>
-    <div v-for="observation in observations">
-      <p>{{ formatDate(observation.timestamp) }}</p>
-      <p>Value: {{ observation.value }} {{ observation.uom }}</p>
-      <p>Type: {{ observation.sensor_path }}</p>
-      <p>Node: {{ observation.node_vsn }}</p>
-      <p>Location: {{ observation.longitude }}, {{ observation.latitude }}</p>
-      <br />
+    <!-- Masthead-->
+    <div class="masthead-route-show">
+      <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+          <h3 class="text-white-50 mx-auto mt-2 mb-5">
+            Route
+          </h3>
+          <h6 class="text-white-50 mx-auto mt-2 mb-5">
+            Updated: {{ relativeDate(trip.created_at) }}<br />
+            Distance: {{ trip.distance }}<br />
+            Duration: {{ trip.duration }}<br />
+            Type: {{ trip.trip_type }}<br />
+            Mode: {{ trip.mode }}<br />
+          </h6>
+          <h3 class="text-white-50 mx-auto mt-2 mb-5">
+            Air Quality
+          </h3>
+          <div v-for="observation in observations">
+            <h6 class="text-white-50 mx-auto mt-2 mb-5">
+              {{ formatDate(observation.timestamp) }}<br />
+              Value: {{ observation.value }} {{ observation.uom }}<br />
+              Type: {{ observation.sensor_path }}<br />
+              Node: {{ observation.node_vsn }}<br />
+              Location: {{ observation.longitude }}, {{ observation.latitude }}
+            </h6>
+          </div>
+          <!-- <br />
+          <a v-bind:href="`/trips/${trip.id}/edit`">Edit trip</a>
+          <br />
+          <br /> -->
+          <button v-on:click="destroyTrip(trip)">Delete Trip</button>
+          <br />
+          <br />
+          <a href="/trips">Back to All Trips</a>
+        </div>
+      </div>
     </div>
-    <!-- <a v-bind:href="`/trips/${trip.id}/edit`">Edit trip</a> -->
-    <br />
-    <button v-on:click="destroyTrip(trip)">Delete Trip</button>
-    <a href="/trips">Back to All Trips</a>
   </div>
 </template>
 

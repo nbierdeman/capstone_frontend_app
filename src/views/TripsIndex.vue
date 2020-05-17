@@ -1,7 +1,7 @@
 <template>
   <div class="trips">
     <!-- Masthead-->
-    <header class="masthead-routes">
+    <div class="masthead-routes">
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <h3 class="text-white-50 mx-auto mt-2 mb-5">
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-    </header>
+    </div>
   </div>
 </template>
 

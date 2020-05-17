@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <!-- Masthead-About-->
-    <header class="masthead-about">
+    <div class="masthead-about">
       <div class="container d-flex h-100 align-items-center">
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">Built with Array of Things</h2>
@@ -12,6 +12,6 @@
           </p>
         </div>
       </div>
-    </header>
+    </div>
   </div>
 </template>
