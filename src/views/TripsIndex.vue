@@ -11,10 +11,10 @@
           <div v-for="trip in trips">
             <h6 class="text-white-50 mx-auto mt-2 mb-5">
               Updated: {{ relativeDate(trip.created_at) }}<br />
-              Duration: {{ trip.duration }}<br />
               Distance: {{ trip.distance }}<br />
-              Mode: {{ trip.mode }}<br />
+              Duration: {{ trip.duration }}<br />
               Type: {{ trip.trip_type }}<br />
+              Mode: {{ trip.mode }}<br />
               <br />
               <a v-bind:href="`/trips/${trip.id}`">More info</a>
             </h6>
