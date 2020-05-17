@@ -5,7 +5,6 @@
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <h3 class="text-white-50 mx-auto mt-2 mb-5">
-            <br />
             My Routes
           </h3>
           <div v-for="trip in trips">

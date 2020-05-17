@@ -1,19 +1,28 @@
 <template>
   <div>
     <div id="map"></div>
-    <button v-on:click="getAirQuality()">Air Quality</button>
-    <button v-on:click="saveRoute()">Save Route</button>
+    <div class="about-section">
+      <div class="mx-auto text-center">
+        <button v-on:click="getAirQuality()">Get Air Quality</button>
+        <button v-on:click="saveRoute()">Save Route</button>
+        <div v-for="observation in observations">
+          <br />
+          <h6 class="text-white-50 mx-auto mt-2 mb-5">
+          Sensor: {{ observation["sensor_path"] }}<br />
+          Value: {{ observation["value"] }} {{ observation["uom"] }}<br />
+          </h6>
+        </div>
+        <br />
+        <br />
+      </div>
+    </div>
+    <!-- <p>Raw: {{ observation }}</p> -->
     <!-- <p>Origin: {{ origin }}</p> -->
     <!-- <p>Destination: {{ destination }}</p> -->
     <!-- <p>Waypoints: {{ waypoints }}</p> -->
     <!-- <p>Node VSN: {{ node_vsns }}</p> -->
     <!-- <p>Closest Nodes: {{ closest_node_coordinates }}</p> -->
     <!-- <p>Route: {{ route }}</p> -->
-    <div v-for="observation in observations">
-      <h3>Sensor: {{ observation["sensor_path"] }}</h3>
-      <p>Value: {{ observation["value"] }} {{ observation["uom"] }}</p>
-      <!-- <p>Raw: {{ observation }}</p> -->
-    </div>
   </div>
 </template>
 
@@ -24,7 +33,7 @@ body {
 }
 #map {
   width: 100%;
-  height: 500px;
+  height: 668px;
 }
 </style>
 

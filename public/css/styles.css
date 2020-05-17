@@ -10816,7 +10816,7 @@ body {
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 125vh;
+  min-height: 110vh;
   padding: 15rem 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%),
     url("../assets/img/solal-ohayon-yxasrDwmXY8-unsplash (1).jpeg");
@@ -10863,7 +10863,7 @@ body {
 }
 
 .about-section {
-  padding-top: 10rem;
+  padding-top: 0rem;
   background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
 }
 .about-section p {
