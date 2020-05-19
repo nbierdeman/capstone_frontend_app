@@ -3,91 +3,76 @@
     <div id="map"></div>
     <div class="about-section">
       <div class="mx-auto text-center">
+        <button v-on:click="getAirQuality()">Get Air Quality</button>
+        <button v-if="jwt" v-on:click="saveRoute()">Save Route</button>
         <br />
         <br />
-        <h3 class="text-white-50 mx-auto mt-2 mb-5">
-          <strong>Route</strong>
-        <h6 v-if="jwt" class="text-white-50 mx-auto mt-2 mb-5">
-          <br />
-          <br />
-          <button v-if="jwt" v-on:click="saveRoute()">Save Route</button>
-        </h6>
-        </h3>
-        <h6 class="text-white-50 mx-auto mt-2 mb-5">
-          <strong>Origin:</strong>
-          <br />
-          <br />
-          {{ origin }}
-          <br />
-          <br />
-          <strong>Destination:</strong>
-          <br />
-          <br />
-          {{ destination }}
-          <br />
-          <br />
-          <strong>Waypoints:</strong>
-          <br />
-          <br />
-          {{ waypoints }}
-          <br />
-          <br />
-          <strong>Duration:</strong>
-          <br />
-          <br />
-          {{ duration }}
-          <br />
-          <br />
-          <strong>Distance:</strong>
-          <br />
-          <br />
-          {{ distance }}
-        </h6>
-        <h3 class="text-white-50 mx-auto mt-2 mb-5">
-          <strong>Air Quality</strong>
+        <div v-if="route">
+          <h3 class="text-white-50 mx-auto mt-2 mb-5">
+            <strong>Route</strong>
+          </h3>
           <h6 class="text-white-50 mx-auto mt-2 mb-5">
+            <strong>Origin:</strong>
             <br />
             <br />
-            <button v-on:click="getAirQuality()">Get Air Quality</button>
+            {{ origin }}
+            <br />
+            <br />
+            <strong>Destination:</strong>
+            <br />
+            <br />
+            {{ destination }}
+            <br />
+            <br />
+            <strong>Waypoints:</strong>
+            <br />
+            <br />
+            {{ waypoints }}
+            <br />
+            <br />
+            <strong>Duration:</strong>
+            <br />
+            <br />
+            {{ duration }}
+            <br />
+            <br />
+            <strong>Distance:</strong>
+            <br />
+            <br />
+            {{ distance }}
           </h6>
-        </h3>
-        <h6 class="text-white-50 mx-auto mt-2 mb-5">
-          <strong>Node VSN's:</strong>
-          <br />
-          <br />
-          {{ node_vsns }}
-          <br />
-          <br />
-          <strong>Node Coordinates:</strong>
-          <br />
-          <br />
-          {{ closest_node_coordinates }}
-          <br />
-          <br />
-          <strong>Observations:</strong>
-          <br />
-          <br />
-          <div v-for="observation in observations">
-            Sensor: {{ observation["sensor_path"] }}<br />
-            Value: {{ observation["value"] }} {{ observation["uom"] }}<br />
-            <br />
-          </div>
-        </h6>
-        <!-- <div v-for="observation in observations">
+        </div>
+        <div v-if="observations">
+          <h3 class="text-white-50 mx-auto mt-2 mb-5">
+            <strong>Air Quality</strong>
+          </h3>
           <h6 class="text-white-50 mx-auto mt-2 mb-5">
-          Sensor: {{ observation["sensor_path"] }}<br />
-          Value: {{ observation["value"] }} {{ observation["uom"] }}<br />
+            <strong>Node VSN's:</strong>
+            <br />
+            <br />
+            {{ node_vsns }}
+            <br />
+            <br />
+            <strong>Node Coordinates:</strong>
+            <br />
+            <br />
+            {{ closest_node_coordinates }}
+            <br />
+            <br />
+            <strong>Observations:</strong>
+            <br />
+            <br />
+            <div v-for="observation in observations">
+              Sensor: {{ observation["sensor_path"] }}<br />
+              Value: {{ observation["value"] }} {{ observation["uom"] }}<br />
+              <br />
+            </div>
           </h6>
-        </div> -->
+        </div>
         <br />
       </div>
     </div>
     <!-- <p>Raw: {{ observation }}</p> -->
-    <!-- <p>Origin: {{ origin }}</p> -->
-    <!-- <p>Destination: {{ destination }}</p> -->
-    <!-- <p>Waypoints: {{ waypoints }}</p> -->
-    <!-- <p>Node VSN: {{ node_vsns }}</p> -->
-    <!-- <p>Closest Nodes: {{ closest_node_coordinates }}</p> -->
     <!-- <p>Route: {{ route }}</p> -->
   </div>
 </template>
@@ -174,15 +159,15 @@ export default {
     });
 
     // remove all waypoints
-    var removeWaypointsButton = document.body.appendChild(document.createElement("button"));
-    removeWaypointsButton.style = "z-index:10;position:absolute;top:639px;right:565px;";
-    removeWaypointsButton.textContent = "Remove waypoints";
+    // var removeWaypointsButton = document.body.appendChild(document.createElement("button"));
+    // removeWaypointsButton.style = "z-index:10;position:absolute;top:639px;right:565px;";
+    // removeWaypointsButton.textContent = "Remove waypoints";
 
-    map.on("load", () => {
-      removeWaypointsButton.addEventListener("click", function() {
-        directions.removeRoutes();
-      });
-    });
+    // map.on("load", () => {
+    //   removeWaypointsButton.addEventListener("click", function() {
+    //     directions.removeRoutes();
+    //   });
+    // });
 
     var directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
