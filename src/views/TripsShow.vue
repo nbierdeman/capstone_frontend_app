@@ -20,10 +20,10 @@
           <div v-for="observation in observations">
             <h6 class="text-white-50 mx-auto mt-2 mb-5">
               {{ formatDate(observation.timestamp) }}<br />
+              Sensor: {{ observation.sensor_path }}<br />
+              Location: {{ observation.longitude }}, {{ observation.latitude }}<br />
               Value: {{ observation.value }} {{ observation.uom }}<br />
-              Type: {{ observation.sensor_path }}<br />
-              Node: {{ observation.node_vsn }}<br />
-              Location: {{ observation.longitude }}, {{ observation.latitude }}
+              Node: "{{ observation.node_vsn }}"<br />
             </h6>
           </div>
           <!-- <br />
