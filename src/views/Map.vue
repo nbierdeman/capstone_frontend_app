@@ -108,6 +108,8 @@ export default {
       trip_type: null,
       jwt: null,
       userId: null,
+      nodes_geojson: null,
+      map: null,
     };
   },
   created: function() {
@@ -127,6 +129,14 @@ export default {
         this.observations = response.data.observations;
         this.closest_node_coordinates = response.data.closest_node_coordinates;
         this.node_vsns = response.data.node_vsns;
+        this.nodes_geojson = response.data.nodes_geojson;
+        // add markers to map
+        this.nodes_geojson.features.forEach(feature => {
+          new mapboxgl.Marker()
+            .setLngLat(feature.geometry.coordinates)
+            .setPopup(new mapboxgl.Popup().setHTML(feature.properties.title)) // add popup
+            .addTo(this.map);
+        });
       });
     },
     saveRoute() {
@@ -157,17 +167,6 @@ export default {
       center: [-87.6298, 41.8781], // starting position [lng, lat]
       zoom: 12, // starting zoom
     });
-
-    // remove all waypoints
-    // var removeWaypointsButton = document.body.appendChild(document.createElement("button"));
-    // removeWaypointsButton.style = "z-index:10;position:absolute;top:639px;right:565px;";
-    // removeWaypointsButton.textContent = "Remove waypoints";
-
-    // map.on("load", () => {
-    //   removeWaypointsButton.addEventListener("click", function() {
-    //     directions.removeRoutes();
-    //   });
-    // });
 
     var directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
@@ -206,6 +205,9 @@ export default {
         this.trip_type = response.data.trip_type;
       });
     });
+
+    this.map = map;
+
     // map.on("load", function() {
     //   map.addSource("route", {
     //     type: "geojson",
