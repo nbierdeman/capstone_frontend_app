@@ -6,7 +6,7 @@
         <br />
         <br />
         <h3 class="text-white-50 mx-auto mt-2 mb-5">
-          Route
+          <strong>Route</strong>
         <h6 v-if="jwt" class="text-white-50 mx-auto mt-2 mb-5">
           <br />
           <br />
@@ -44,7 +44,7 @@
           {{ distance }}
         </h6>
         <h3 class="text-white-50 mx-auto mt-2 mb-5">
-          Air Quality
+          <strong>Air Quality</strong>
           <h6 class="text-white-50 mx-auto mt-2 mb-5">
             <br />
             <br />
