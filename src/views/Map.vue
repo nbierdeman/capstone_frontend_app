@@ -3,8 +3,8 @@
     <div id="map"></div>
     <div class="about-section">
       <div class="mx-auto text-center">
-        <button v-on:click="getAirQuality()">Get Air Quality</button>
-        <button v-if="jwt" v-on:click="saveRoute()">Save Route</button>
+        <button v-if="waypoints" v-on:click="getAirQuality()">Get Air Quality</button>
+        <button v-if="jwt && observations" v-on:click="saveRoute()">Save Route</button>
         <br />
         <br />
         <div v-if="route">
