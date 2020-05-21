@@ -44,8 +44,11 @@
         </div>
         <div v-if="observations">
           <h3 class="text-white-50 mx-auto mt-2 mb-5">
-            <strong>Air Quality</strong>
+            <strong>Air Quality</strong><br />
+            <br />
+            <img v-bind:src="selectedImage" />
           </h3>
+          <!-- <img v-bind:src="selectedImage" /> -->
           <h6 class="text-white-50 mx-auto mt-2 mb-5">
             <strong>Node VSN's:</strong>
             <br />
@@ -110,6 +113,8 @@ export default {
       userId: null,
       nodes_geojson: null,
       map: null,
+      images: ["../assets/img/good.png", "../assets/img/bad.png"],
+      selectedImage: "",
     };
   },
   created: function() {
@@ -137,6 +142,8 @@ export default {
             .setPopup(new mapboxgl.Popup().setHTML(feature.properties.title)) // add popup
             .addTo(this.map);
         });
+        const image_id = Math.floor(Math.random() * this.images.length);
+        this.selectedImage = this.images[image_id];
       });
     },
     saveRoute() {
